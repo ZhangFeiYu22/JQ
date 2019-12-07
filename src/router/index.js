@@ -5,6 +5,7 @@ import CompanyProfile from '@/views/companyProfile'
 import BusinessScope from '@/views/businessScope'
 import CaseShows from '@/views/caseShows'
 import ContactUs from '@/views/contactUs'
+import ArtileDetail from '@/views/artileDetail'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/contactUs',
       name: 'contactUs',
       component: ContactUs
+    },
+    {
+      path: '/artileDetail',
+      name: 'artileDetail',
+      component: ArtileDetail
     }
 
   ]

@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'lib-flexible/flexible'
 import '@/assets/styles/reset.css'
 import Router from 'vue-router'
+
+import { Lazyload } from 'vant';
+Vue.use(Lazyload);
 
 Vue.config.productionTip = false
 
