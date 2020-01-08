@@ -1,5 +1,4 @@
 import axios from 'axios'
-import router from '../router/index';
 
 // 实例化 axios
 const service = axios.create({
