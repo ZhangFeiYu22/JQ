@@ -31,16 +31,18 @@
     <div class="listBox">
       <div
         class="listItem"
-        v-for="item in articleList"
+        v-for="(item,index) in articleList"
         :key="item.id"
         @click="listClick(item.id)"
+        v-if="index<3"
       >
         <div class="leftImg">
           <img class="img" :src="item.file_path" alt="" />
         </div>
         <div class="rightContent">
           <h5 class="title">{{ item.title }}</h5>
-          <p class="content ellipsis-2">{{ item.content }}</p>
+          <p class="content ellipsis-2">这是副标题sub-title</p>
+          <!-- <p class="content ellipsis-2">{{ item.content }}</p> -->
           <p class="time">{{ item.updated_at }}</p>
         </div>
       </div>
@@ -116,7 +118,7 @@ export default {
     },
     listClick(id) {
       console.log(id);
-      this.$router.push('artileDetail');
+      this.$router.push({name: 'artileDetail', query: {aid: id}});
     }
   }
 };

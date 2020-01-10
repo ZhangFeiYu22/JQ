@@ -6,8 +6,8 @@
     <!-- 轮播 -->
     <div class="carousel">
       <van-swipe :autoplay="3000" :height="500" indicator-color="white">
-        <van-swipe-item v-for="item in images" :key="item.id">
-          <img v-lazy="item.url" />
+        <van-swipe-item v-for="item in detail" :key="item.id">
+          <img v-lazy="item.file_path" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -16,6 +16,7 @@
 
 <script>
 import { Swipe, SwipeItem } from "vant";
+import { getCase } from "../api/apis";
 export default {
   components: {
     [Swipe.name]: Swipe,
@@ -23,16 +24,21 @@ export default {
   },
   data() {
     return {
-      images: [
-        { id: 1, url: require("../../static/image/carousel1.jpeg") },
-        { id: 2, url: require("../../static/image/carousel2.jpeg") },
-        { id: 3, url: require("../../static/image/carousel3.jpeg") },
-        { id: 4, url: require("../../static/image/carousel4.jpg") }
-      ]
+      detail: []
     };
   },
-  created() {},
-  methods: {}
+   created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData(){
+      getCase().then(res=>{
+       if(res.status == 200){
+         this.detail = res.data
+       }
+      })
+    }
+  }
 };
 </script>
 

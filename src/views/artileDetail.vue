@@ -1,21 +1,34 @@
 <template>
   <div class="articleDetails">
-    <div class="title">文章的标题放这里</div>
-    <div class="content">
-        文章的内容放这里
+    <div class="title">{{detail.title}}</div>
+    <div class="content" v-html="detail.content">
+        
     </div>
   </div>
 </template>
 
 <script>
+import { getArticleDetail } from "../api/apis";
 export default {
   data() {
     return {
-        
+        articleId: '',
+        detail: ''
     };
   },
-  created() {},
-  methods: {}
+  created() {
+    this.articleId = this.$route.query.aid;
+    this.fetchData();
+  },
+  methods: {
+    fetchData(){
+      getArticleDetail(this.articleId).then(res=>{
+       if(res.status == 200){
+         this.detail = res.data
+       }
+      })
+    }
+  }
 };
 </script>
 
@@ -26,7 +39,8 @@ export default {
     .title{
         height: 40px;
         line-height: 40px;
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 600;
     }
     .content{
 

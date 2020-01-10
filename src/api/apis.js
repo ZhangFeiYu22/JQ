@@ -15,24 +15,31 @@ export function homeArticle() {
         method: 'get'
     })
 }
+// 文章详情
+export function getArticleDetail(id) {
+    return request({
+        url: `/api/article/${id}`,
+        method: 'get'
+    })
+}
 // 公司简介   查看 
 export function getIntroduction() {
     return request({
-        url: `/backend/introduction`,
+        url: `/api/introduction`,
         method: 'get'
     })
 }
 // 业务范围  列表
 export function getBusiness() {
     return request({
-        url: `/backend/business`,
+        url: `/api/business`,
         method: 'get'
     })
 }
 // 案例展示  列表
 export function getCase() {
     return request({
-        url: `/backend/cases`,
+        url: `/api/cases`,
         method: 'get'
     })
 }
@@ -40,7 +47,7 @@ export function getCase() {
 //联系我们   查看
 export function getContacUs() {
     return request({
-        url: `/backend/company`,
+        url: `/api/contact`,
         method: 'get'
     })
 }

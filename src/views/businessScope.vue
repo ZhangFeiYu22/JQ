@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { getBusiness } from "../api/apis";
 export default {
   data() {
     return {
+      detail: [],
       businessList: [
         {
           id: 1,
@@ -50,8 +52,18 @@ export default {
       ]
     };
   },
-  created() {},
-  methods: {}
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData(){
+      getBusiness().then(res=>{
+       if(res.status == 200){
+         this.detail = res.data
+       }
+      })
+    }
+  }
 };
 </script>
 
