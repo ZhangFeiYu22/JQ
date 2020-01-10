@@ -5,7 +5,7 @@
     </div>
     <div class="busBox">
       <div class="busItem" v-for="item in businessList" :key="item.id">
-        <img :src="item.url" alt="图片" />
+        <img :src="item.file_path" alt="图片" />
         <p>{{ item.title }}</p>
       </div>
     </div>
@@ -17,51 +17,19 @@ import { getBusiness } from "../api/apis";
 export default {
   data() {
     return {
-      detail: [],
-      businessList: [
-        {
-          id: 1,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        },
-        {
-          id: 2,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        },
-        {
-          id: 3,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        },
-        {
-          id: 4,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        },
-        {
-          id: 5,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        },
-        {
-          id: 6,
-          url: require("../../static/image/carousel4.jpg"),
-          title: "业务一"
-        }
-      ]
+      businessList: []
     };
   },
   created() {
     this.fetchData();
   },
   methods: {
-    fetchData(){
-      getBusiness().then(res=>{
-       if(res.status == 200){
-         this.detail = res.data
-       }
-      })
+    fetchData() {
+      getBusiness().then(res => {
+        if (res.status == 200) {
+          this.businessList = res.data;
+        }
+      });
     }
   }
 };

@@ -41,7 +41,7 @@
         </div>
         <div class="rightContent">
           <h5 class="title">{{ item.title }}</h5>
-          <p class="content ellipsis-2">这是副标题sub-title</p>
+          <p class="content ellipsis-2">{{item.subtitle}}</p>
           <!-- <p class="content ellipsis-2">{{ item.content }}</p> -->
           <p class="time">{{ item.updated_at }}</p>
         </div>
