@@ -1,6 +1,6 @@
 # jianqing
 
-> jianqing 
+> 简轻，一个简单的展示网站 
 
 ## Build Setup
 
